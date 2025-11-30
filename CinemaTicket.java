@@ -87,13 +87,13 @@ public class CinemaTicket
         else if(festival==1 && student==2 )
             {
                 
-                        ticket=0.8*ticket;
+                        ticket=0.85*ticket;
                         System.out.println("Your ticket price is Rs "+ticket);
                     
             }
         else if(festival==1 && student==1)
             {
-                ticket=0.75*ticket;
+                ticket=0.65*ticket;
                 System.out.println("Your ticket price is Rs "+ticket);
             }
             
