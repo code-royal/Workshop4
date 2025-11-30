@@ -1,70 +1,102 @@
-import java.util.*;
+import java.util.Scanner;
 
 /**
- * Write a description of class cinema here.
+ * Write a description of class CinemaTicket here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
 public class CinemaTicket
 {
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
+     Scanner sc = new Scanner(System.in);
+     System.out.println("Enter you age group \n(1 for child/2 for adult/3 for senior)");
+      int age = sc.nextInt();
+    System.out.println("Enter your movie language\n(1 for hindi/2 for english/3 for nepali)");
+     int movie = sc.nextInt();
+    System.out.println("Are you a student with valid ID card?\n(1 for yes/2 for no)");
+     int student = sc.nextInt();
+    System.out.println("Is it a festival day?\n(1 for yes/2 for no)");
+     int festival = sc.nextInt();
+    double ticket=0;
 
-        // Input collection
-        System.out.print("Enter age group (child/adult/senior): ");
-        String ageGroup = sc.nextLine();
-
-        System.out.print("Enter movie language (nepali, english, hindi): ");
-        String language = sc.nextLine();
-
-        System.out.print("Are you a student with valid ID? (yes/no): ");
-        String isStudent = sc.next();
-
-        System.out.print("Is it a festival day? (yes/no): ");
-        String isFestival = sc.next();
+        if(age==1)
+           
+            {
+                if(movie==1)
+                {
+                    ticket=150+50;
+                }
+                else if(movie==2)
+                {
+                    ticket=150+100;
+                }
+                else if(movie==3)
+                {
+                    ticket=150;
+                }
+                
+            }
+        else if(age==2)
+            {
+                if(movie==1)
+                {
+                    ticket=250+50;
+                }
+                else if(movie==2)
+                {
+                    ticket=250+100;
+                }
+                else if(movie==3)
+                {
+                    ticket=250;
+                }
+            }
+        else if(age==3)
+            {
+                if(movie==1)
+                {
+                    ticket=200+50;
+                }
+                else if(movie==2)
+                {
+                    ticket=200+100;
+                }
+                else if(movie==3)
+                {
+                    ticket=200;
+                }
+            }
+        else
+            {
+                System.out.println("Invalid age group");
+            }
+     
+        if(student==2 && festival==2)
+            {
+                System.out.println("Your ticket price is Rs "+ticket);
+            }
+        if(student==1 && festival==2)
+            {
+                
+                    ticket=0.8*ticket;
+                    System.out.println("Your ticket price is Rs "+ticket);
+                
+            }
+        else if(festival==1 && student==2 )
+            {
+                
+                        ticket=0.8*ticket;
+                        System.out.println("Your ticket price is Rs "+ticket);
+                    
+            }
+        else if(festival==1 && student==1)
+            {
+                ticket=0.75*ticket;
+                System.out.println("Your ticket price is Rs "+ticket);
+            }
+            
         
-        // Base price by age group (Nepali movie)
-        double basePrice = 0;
-        switch (ageGroup) 
-        {
-            case "child": basePrice = 150; 
-            break;
-            case "adult": basePrice = 250; 
-            break;
-            case "senior": basePrice = 200; 
-            break;
-            default:
-            System.out.println("Invalid age group.");
-            return;
-        }
-
-        // Language surcharge
-        switch (language) 
-        {
-            case "hindi":basePrice = basePrice + 50; 
-            break;
-            case "english":basePrice = basePrice + 100; 
-            break;
-            case "nepali": basePrice = basePrice;
-            break;
-            default:
-            System.out.println("Invalid language.");
-            return;
-        }
-
-        // Apply student discount
-        if (isStudent == "yes") 
-        {
-            basePrice = basePrice - (basePrice * 0.20);     // 20% off
-        }
-
-        // Apply festival discount
-        if (isFestival == "yes") 
-        {
-            basePrice = basePrice - (basePrice * 0.15);    // 15% off
-        }
-        System.out.println("Final ticket price: Rs. " + basePrice);
     }
 }
